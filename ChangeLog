@@ -1,0 +1,109 @@
+ChangeLog of JSch
+====================================================================
+Last modified: Tue Jan 28 14:26:27 UTC 2003
+
+
+Changes since version 0.0.12:	
+- fixed a bug in verifying DAS signatures.
+- added 'SftpATTR' class, which allow you to get attributes of remote files on 
+  sftp channel, and 'stat', 'lstat' method are added to 'ChannelSftp' class.
+- added 'getInputStream' and 'getOutputStream' methods Channel class, which 
+  return passive I/O streams.	 
+- 'setIdentity' method is deleted from 'Session' class and
+  'addIdentity' method is added to 'JSch' class
+- 'setUserName' method is deleted from 'Session' class and
+  'getSession' method of 'JSch' class is changed.
+- 'isConnected' method is added to 'Session' class.
+- 'UserInfo' interface is changed.
+
+	
+Changes since version 0.0.11:	
+- taking care of remote window size.
+- adding 'disconnect' method to 'Channel' and 'Session' classes.
+- signal sending support.
+- 'mkdir' command for sftp.
+- 'fromBase64' method has been moved to Util class and 'toBase64' method has
+   also been added to that class.
+- 'KnownHosts' class for checking host-key in 'known_host' file.
+- 'examples/KnownHosts.java' has been added.
+- 'setUserName' and 'setPassword' methods have been added to Session class.
+- 'UserInfo' interface has been changed.
+- The implementation of compression has moved to 'com.jcraft.jsch.jcraft'
+  package.
+- fixed a bug in handling 'SSH_MSG_CHANNEL_REQUET' request.
+- fixed a bug in sending multiple requests on a single session.
+	
+	
+Changes since version 0.0.10:	
+- Diffie-Hellman key exchange 'diffie-hellman-group1-sha1' is supported.
+  Refer to 'src/com/jcraft/jsch/jce/DHG1.java'.
+  Thanks to Mitsugu Kitano, whose feedback was very helpful.
+- By the default, 'diffie-hellman-group1-sha1' will be used in the
+  key exchange step.
+- The file attribute on 'SSH File Transfer Protocol' is supported.
+  Now, we can say JSch supports 'SSH File Transfer Protocol'.
+- 'examples/Sftp.java' is updated.
+  'chgrp','chown','chmod' commands are supported.
+
+	
+Changes since version 0.0.9:	
+- SSH File Transfer Protocol is supported partially.
+- 'examples/Sftp.java' is added.
+  This example is a tiny sftp command and supports 'cd','put','get','rm',etc.
+- 'close' method is added to Channel interface.	
+- build.xml for examples is added.
+  Thanks to Ronald Broberg.
+
+	
+Changes since version 0.0.8:	
+- the tunneling through a SOCKS5 proxy is supported.
+- 'examples/ScpFrom.java' is added.
+- 'com.jcraft.jsch.UserInfo' interface is modified.
+
+	
+Changes since version 0.0.7:	
+- Packet comression is supported.
+- 'examples/Compression.java' is added.
+- JZlib is included.
+
+	
+Changes since version 0.0.6:	
+- RSA host key is supported.
+- RSA public key authentication is supported.
+
+
+Changes since version 0.0.5:	
+- DSA public key authentication is supported.
+- examples/UserAuthPubKey.java is added.
+- examples/ScpTo.java is added.
+	
+
+Changes since version 0.0.4:	
+- 3des-cbc is supported.
+- hmac-sha1 is supported.
+- hmac-md5-96 is supported.
+- hmac-sha1-96 is supported.	
+	
+
+Changes since version 0.0.3:	
+- port forwarding, similar to the -L option of SSH.
+- examples/PortForwardingL.java is added.
+- examples/StreamForwarding.java is added.
+- examples/Exec.java is renamed as examples/Shell.java
+- stream forwarding is added.
+- ChannelSftp class is added for implementing filexfer.
+- interfaces for jsch users are changed.
+	
+
+Changes since version 0.0.2:	
+- remote exec is supported.	
+- examples/Exec.java is added.
+- build.xml and some scripts for Ant are added. (lbruand)
+- Const class is added. (lbruand)
+
+	
+Changes since version 0.0.1:
+- the tunneling via HTTP proxy is supported.
+- port forwarding like option -R of ssh command.
+  the given port on the remote host will be forwarded to the given host
+  and port on the local side.	
